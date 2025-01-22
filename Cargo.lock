@@ -15,7 +15,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7b7e4c2464d97fe331d41de9d5db0def0a96f4d823b8b32a2efd503578988973"
 
 [[package]]
-name = "browser-core"
+name = "browser_core"
 version = "0.1.0"
 
 [[package]]
@@ -74,6 +74,16 @@ checksum = "c3c8dda44ff03a2f238717214da50f65d5a53b45cd213a7370424ffdb6fae815"
 name = "my-browser"
 version = "0.1.0"
 dependencies = [
+ "browser_core",
+ "net_wasabi",
+ "noli",
+]
+
+[[package]]
+name = "net_wasabi"
+version = "0.1.0"
+dependencies = [
+ "browser_core",
  "noli",
 ]
 

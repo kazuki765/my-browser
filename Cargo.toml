@@ -1,8 +1,23 @@
-workspace = { members = [ "browser-core"] }
+workspace = { members = [ "browser-core", "net/wasabi"] }
+
 [package]
 name = "my-browser"
 version = "0.1.0"
 edition = "2021"
+authors = ["kazuki765"]
+default-run = "saba"
+
+[features]
+default = ["wasabi"]
+wasabi = ["dep:net_wasabi", "dep:noli" ]
+
+[[bin]]
+name = "saba"
+path = "src/main.rs"
+required-features = ["wasabi"]
 
 [dependencies]
-noli = { git= "https://github.com/hikalium/wasabi.git", branch = "for_saba" }
+browser_core = { path = "./browser-core" }
+net_wasabi = { path = "./net/wasabi", optional = true }
+noli = { git= "https://github.com/hikalium/wasabi.git", branch = "for_saba", optional = true }
+
